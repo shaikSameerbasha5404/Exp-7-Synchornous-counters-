@@ -46,43 +46,67 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Create a new project in QuartusII software.
 
+2.Name the project as uc for upcounter and dc for down counter.
 
+3.Create a new verilog hdl file in the project file.
 
+4.Name the module as dc and uc for down counter and up counter.
+
+5.Within the module declare input and output variables.
+
+6.Create a loop using if-else with condition parameter as reset value.
+
+7.End the loop.
+
+8.End the module.
 ### PROGRAM 
-/*
+```python
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
-
-
-
-
-
-
+Developed by:Shaik Sameer Basha 
+RegisterNumber:  212222240093
+# Up Counter
+module uc(clk,A);
+input clk;
+output reg [3:0]A;
+always @(posedge clk)
+begin
+A[3]=(((A[2]) & (A[1]) & (A[0]))^A[3]);
+A[2]=(((A[1]) & (A[0]))^A[2]);
+A[1]=((A[0])^A[1]);
+A[0]=1^A[0];
+end
+endmodule
+# DownCounter
+module dc(clk,A);
+input clk;
+output reg [3:0]A;
+always @(posedge clk)
+begin
+A[3]=(((~A[2]) & (~A[1]) & (~A[0]))^A[3]);
+A[2]=(((~A[1]) & (~A[0]))^A[2]);
+A[1]=((~A[0])^A[1]);
+A[0]=1^A[0];
+end
+endmodule
+```
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
-
-
-
-
-
-
-
-
-
+#### UP COUNTER
+![uc rtl](https://github.com/shaikSameerbasha5404/Exp-7-Synchornous-counters-/assets/118707756/cbbf816c-8b83-4c55-9e15-bedb41350ae5)
+#### Down COUNTER
+![dc rtl](https://github.com/shaikSameerbasha5404/Exp-7-Synchornous-counters-/assets/118707756/3a5f57b3-363f-4c05-b39d-d1951741fddf)
 ### TIMING DIGRAMS FOR COUNTER  
+![Screenshot (128)](https://github.com/shaikSameerbasha5404/Exp-7-Synchornous-counters-/assets/118707756/86af9c77-6318-420c-9f6d-978d7f7c5e3f)
 
-
-
-
+![Screenshot (130)](https://github.com/shaikSameerbasha5404/Exp-7-Synchornous-counters-/assets/118707756/9ef3d0d8-56f0-44ed-ae47-65c7aece0a2d)
 
 ### TRUTH TABLE 
+![198290799-2e8450bf-df1c-4588-94bc-2a19f756ee28](https://github.com/shaikSameerbasha5404/Exp-7-Synchornous-counters-/assets/118707756/e0235645-29a9-4ef4-b98f-0114e54cea45)
 
 
-
-
+![198290826-8317087f-c170-4c0a-83ac-7d0ac1a6c162](https://github.com/shaikSameerbasha5404/Exp-7-Synchornous-counters-/assets/118707756/cf061e89-4b80-48f0-b8ed-6035f07bd1ae)
 
 
 ### RESULTS 
+The 4 bit up and down counters has been implemented and validated the functionality.
